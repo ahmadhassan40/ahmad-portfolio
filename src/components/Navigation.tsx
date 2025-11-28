@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import myPhoto from "@/images/My-Photo.png";
+
 interface NavItem {
   label: string;
   href?: string;
@@ -81,14 +83,12 @@ const Navigation = () => {
   return (
     <nav ref={navRef} className={`site-nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        <button
-          type="button"
-          className="brand"
-          onClick={() => scrollToSection("#home")}
-        >
-          <span className="brand-mark">AH</span>
+        <a href="#" className="brand" onClick={() => scrollToSection("#home")}>
+          <div className="brand-mark">
+            <span>AH</span>
+          </div>
           <span className="hidden sm:inline">Ahmad Hassan</span>
-        </button>
+        </a>
 
         <div className="nav-menu">
           <div className="nav-links hidden md:flex">

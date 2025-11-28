@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
@@ -31,8 +32,101 @@ const Experience = () => {
     },
   ];
 
+  const [lineFill, setLineFill] = useState(0);
+  const [segmentRatios, setSegmentRatios] = useState({ first: 0.35, second: 0.7 });
+  const sectionRef = useRef<HTMLElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // === SCROLL → FILL LOGIC (3 PHASES) ===
+  useEffect(() => {
+    const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
+
+    const updateFill = () => {
+      const section = sectionRef.current;
+      const lineEl = lineRef.current;
+      if (!section || !lineEl) return;
+
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || 1;
+
+      // Section completely below viewport → no fill
+      if (rect.top >= viewportHeight) {
+        setLineFill(0);
+        return;
+      }
+
+      // Section completely above viewport → full fill
+      if (rect.bottom <= 0) {
+        setLineFill(1);
+        return;
+      }
+
+      // 3 different progress values
+      const enterProgress = clamp((viewportHeight - rect.top) / viewportHeight); // 0→1 as section enters
+      const middleProgress = clamp(-rect.top / Math.max(rect.height, 1));        // 0→1 while scrolling through
+      const exitProgress = clamp((viewportHeight - rect.bottom) / viewportHeight); // 0→1 as section leaves
+
+      const { first, second } = segmentRatios;
+      const firstClamped = clamp(first);
+      const secondClamped = clamp(second);
+
+      const middleSpan = Math.max(secondClamped - firstClamped, 0); // first→second
+      const exitSpan = Math.max(1 - secondClamped, 0);               // second→bottom
+
+      // Phase 1: 0 → first dot
+      // Phase 2: first dot → second dot
+      // Phase 3: second dot → bottom
+      const fill =
+        enterProgress * firstClamped +
+        middleProgress * middleSpan +
+        exitProgress * exitSpan;
+
+      setLineFill(clamp(fill));
+    };
+
+    updateFill();
+    window.addEventListener("scroll", updateFill, { passive: true });
+    window.addEventListener("resize", updateFill);
+    return () => {
+      window.removeEventListener("scroll", updateFill);
+      window.removeEventListener("resize", updateFill);
+    };
+  }, [segmentRatios]);
+
+  // === MEASURE DOT POSITIONS ON THE LINE ===
+  useEffect(() => {
+    const measureDots = () => {
+      const lineEl = lineRef.current;
+      if (!lineEl) return;
+      const lineRect = lineEl.getBoundingClientRect();
+      if (!lineRect.height) return;
+
+      const ratios = dotRefs.current
+        .map((dot) => {
+          if (!dot) return null;
+          const dotRect = dot.getBoundingClientRect();
+          const relative = dotRect.top - lineRect.top + dotRect.height / 2;
+          return Math.min(Math.max(relative / lineRect.height, 0), 1);
+        })
+        .filter((val): val is number => val !== null);
+
+      const first = ratios[0] ?? 0.35;
+      const second = ratios[1] ? Math.max(ratios[1], first + 0.08) : Math.min(0.95, first + 0.3);
+      setSegmentRatios({ first, second: Math.min(second, 0.98) });
+    };
+
+    measureDots();
+    window.addEventListener("resize", measureDots);
+    return () => window.removeEventListener("resize", measureDots);
+  }, []);
+
+  const fillStyle: CSSProperties = {
+    height: `${Math.min(Math.max(lineFill, 0), 1) * 100}%`,
+  };
+
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="experience" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary mb-4">Experience</h2>
@@ -41,15 +135,27 @@ const Experience = () => {
 
         <div className="space-y-8 relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
+          <div
+            ref={lineRef}
+            className="hidden md:block absolute left-8 top-0 bottom-0 w-[0.4rem] timeline-line"
+            aria-hidden
+          >
+            <span className="timeline-track" />
+            <span className="timeline-fill" style={fillStyle} />
+          </div>
 
           {experiences.map((exp, index) => (
             <Card
               key={index}
               className="relative md:ml-20 p-6 hover:shadow-lg transition-shadow border border-border bg-card"
             >
-              {/* Timeline dot */}
-              <div className="hidden md:block absolute -left-[3.25rem] top-8 w-4 h-4 rounded-full bg-accent border-4 border-background"></div>
+              {/* Timeline dot (markers) */}
+              <div
+                ref={(el) => {
+                  dotRefs.current[index] = el;
+                }}
+                className="hidden md:block absolute -left-[3.25rem] top-8 w-4 h-4 rounded-full bg-accent border-4 border-background"
+              ></div>
 
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div>
