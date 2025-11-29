@@ -16,17 +16,9 @@ const Skills = () => {
         "REST APIs",
         "Chrome Extensions",
         "Website Deployment",
-      ],
-    },
-    {
-      title: "Mobile Development",
-      icon: Smartphone,
-      skills: [
-        "Dart",
-        "Flutter",
-        "Responsive UI",
-        "API Integration",
-        "Cross-platform Development",
+        "Redux",
+        "Tailwind CSS",
+        "Git & GitHub",
       ],
     },
     {

@@ -4,21 +4,7 @@ import { Calendar, ExternalLink } from "lucide-react";
 
 const Projects = () => {
   const projects = [
-    {
-      title: "Petlinx – Animal Welfare Mobile App",
-      period: "October 2024 – August 2025",
-      type: "Final Year Project",
-      tech: ["Flutter", "Dart", "REST APIs"],
-      description:
-        "Community-driven animal welfare app built with Flutter (Dart) to report and coordinate rescue of lost/injured/stray pets.",
-      highlights: [
-        "Implemented end-to-end flows for case creation/tracking and volunteer coordination",
-        "Integrated REST APIs for auth, listings, and status updates",
-        "Built responsive UI components with robust form validation and error handling",
-        "Collaborated via Git and code reviews; maintained clear documentation",
-        "Mission-focused: enables a 100% volunteer network to improve pet rescue outcomes",
-      ],
-    },
+
     {
       title: "UTMage – Campaign URL Builder",
       period: "May 2025 – July 2025",

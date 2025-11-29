@@ -35,15 +35,14 @@ const About = () => {
 
         <div className="max-w-3xl mx-auto mb-16 text-center">
           <p className="text-lg text-foreground leading-relaxed mb-6">
-            I'm a results-oriented MERN Stack developer with hands-on experience from internships 
-            and academic projects. I've worked across front-end and back-end modules of MERN web 
+            I'm a results-oriented MERN Stack developer with hands-on experience from internships
+            and academic projects. I've worked across front-end and back-end modules of MERN web
             apps, supported production website deployments, and built Chrome extension features.
           </p>
           <p className="text-lg text-foreground leading-relaxed">
-            My experience extends to mobile app development with React Native and Flutter (Dart), 
-            where I've built responsive UIs, integrated REST APIs, and optimized performance across 
-            devices. I'm known for my adaptability, professionalism, and a proactive, results-focused 
-            approach to software development.
+            I specialize in building responsive web applications, integrating REST APIs, and
+            optimizing performance. I'm known for my adaptability, professionalism, and a
+            proactive, results-focused approach to software development.
           </p>
         </div>
 

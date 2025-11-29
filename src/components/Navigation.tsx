@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import myPhoto from "@/images/My-Photo.png";
+
 
 interface NavItem {
   label: string;
@@ -89,7 +89,7 @@ const Navigation = () => {
           onClick={() => scrollToSection("#home")}
         >
           <span className="brand-mark" aria-hidden>
-            <img src={myPhoto} alt="Ahmad Hassan logo" />
+            AH
           </span>
           <span className="hidden sm:inline">Ahmad Hassan</span>
         </button>
@@ -146,9 +146,8 @@ const Navigation = () => {
 
           <div className="nav-actions hidden md:flex">
             <button
-              type="button"
-              className="solid-btn"
               onClick={() => scrollToSection("#contact")}
+              className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
             >
               Contact
             </button>

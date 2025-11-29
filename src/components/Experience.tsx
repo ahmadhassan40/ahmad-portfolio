@@ -18,18 +18,7 @@ const Experience = () => {
       ],
       current: false,
     },
-    {
-      role: "React Native Developer – Intern",
-      company: "logicleaps",
-      location: "Remote",
-      period: "October 2024 – November 2024",
-      responsibilities: [
-        "Built and enhanced React Native mobile apps; delivered responsive UI screens for multiple projects",
-        "Integrated backend APIs and optimized performance across devices",
-        "Applied sound mobile app architecture, solved problems under deadlines, and collaborated effectively with the team",
-      ],
-      current: false,
-    },
+
   ];
 
   const [lineFill, setLineFill] = useState(0);
