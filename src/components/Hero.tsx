@@ -164,10 +164,7 @@ const Hero = () => {
               </div>
 
               <div className={`hero-vscode-info ${showContent ? "visible" : ""}`}>
-                <div className="hero-profile-photo">
-                  <img src={profilePortrait} alt="Ahmad Hassan" loading="lazy" />
-                  <span className="hero-profile-glow" aria-hidden="true" />
-                </div>
+
 
                 <div className="hero-info-text">
                   <span className="hero-info-label">// Ahmad Hassan</span>

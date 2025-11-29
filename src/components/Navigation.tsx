@@ -83,12 +83,16 @@ const Navigation = () => {
   return (
     <nav ref={navRef} className={`site-nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        <a href="#" className="brand" onClick={() => scrollToSection("#home")}>
-          <div className="brand-mark">
-            <span>AH</span>
-          </div>
+        <button
+          type="button"
+          className="brand"
+          onClick={() => scrollToSection("#home")}
+        >
+          <span className="brand-mark" aria-hidden>
+            <img src={myPhoto} alt="Ahmad Hassan logo" />
+          </span>
           <span className="hidden sm:inline">Ahmad Hassan</span>
-        </a>
+        </button>
 
         <div className="nav-menu">
           <div className="nav-links hidden md:flex">
