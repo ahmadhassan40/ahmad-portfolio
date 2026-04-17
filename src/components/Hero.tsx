@@ -13,10 +13,11 @@ const techStack = [
   { label: "Express", icon: Server },
   { label: "React", icon: Code2 },
   { label: "Node.js", icon: Terminal },
+  { label: "Next.js", icon: Layers },
 ];
 
 const heroStats = [
-  { label: "10+ Projects", icon: Layers },
+  { label: "7+ Projects", icon: Layers },
   { label: "1+ Years Exp", icon: Clock },
   { label: "On-site & Remote", icon: Briefcase },
 ];
@@ -28,7 +29,7 @@ const mernSnippet = [
   "  bio: `I engineer robust,",
   "        scalable products with",
   "        the MERN stack.`,",
-  "  stack: ['MongoDB', 'Express', 'React', 'Node'],",
+  "  stack: ['MongoDB', 'Express', 'React', 'Node', 'Next.js'],",
   "  status: 'Shipping with polish',",
   "};",
   "",
@@ -177,11 +178,11 @@ const Hero = () => {
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                5+ Full-Stack Projects
+                7+ Full-Stack Projects
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-                Ex-Authority Hype Intern
+                Freelance · International Clients
               </span>
             </div>
 
@@ -192,9 +193,12 @@ const Hero = () => {
               business growth.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div 
+              className="flex flex-row overflow-x-auto gap-2 lg:gap-3 pb-2 scrollbar-hide shrink-0" 
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               {techStack.map((tech) => (
-                <span key={tech.label} className="tech-badge">
+                <span key={tech.label} className="tech-badge whitespace-nowrap flex-shrink-0">
                   <tech.icon className="h-4 w-4" />
                   {tech.label}
                 </span>

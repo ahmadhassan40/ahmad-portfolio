@@ -14,7 +14,7 @@ const Skills = () => {
       icon: Layers,
       title: "Comfortable With",
       description: "Tools I use regularly for specific needs",
-      skills: ["Next.js", "Redux", "PostgreSQL", "Firebase", "Docker", "Git"],
+      skills: ["Next.js", "Redux", "PostgreSQL", "Firebase", "Docker", "Git", "Laravel", "PHP"],
     },
     {
       icon: Wrench,

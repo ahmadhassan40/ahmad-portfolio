@@ -22,6 +22,42 @@ const Experience = () => {
       ],
       current: false,
     },
+    {
+      role: "Full-Stack Developer – Freelance (Volnyn)",
+      company: "US-Based Client (Remote)",
+      location: "Remote – United States",
+      period: "February 2026 – March 2026",
+      tech: ["Laravel", "PHP", "MySQL", "OpenAI API", "REST APIs"],
+      responsibilities: [
+        "Maintained and enhanced a production real-estate platform (volnyn.com) for a US-based client",
+        "Integrated AI-powered features including smart property descriptions and intelligent listing recommendations",
+        "Implemented new feature modules per client requirements, ensuring seamless UX across the platform",
+        "Performed codebase maintenance, bug fixes, and performance optimizations on the Laravel backend",
+      ],
+      impact: [
+        "Successfully shipped AI feature upgrades, boosting platform engagement and user satisfaction",
+        "Delivered all milestones on schedule, earning repeat collaboration with the client",
+      ],
+      current: false,
+    },
+    {
+      role: "Full-Stack Developer – Freelance (LogoAiPro)",
+      company: "US-Based Client (Remote)",
+      location: "Remote – United States",
+      period: "March 2026 – April 2026",
+      tech: ["Next.js", "Node.js", "OpenAI API", "Canvas API", "MongoDB"],
+      responsibilities: [
+        "Built a full-stack AI-powered logo and image generation platform from the ground up",
+        "Developed an interactive logo editor allowing users to customize AI-generated logos (colors, fonts, layout)",
+        "Integrated OpenAI image generation API for creating high-quality logos and brand assets",
+        "Designed intuitive UI/UX for the generation and editing workflows",
+      ],
+      impact: [
+        "Delivered a polished AI creative tool with a seamless generate → edit → download workflow",
+        "Built a custom canvas-based editor enabling granular logo customization beyond standard AI output",
+      ],
+      current: false,
+    },
 
   ];
 

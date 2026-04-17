@@ -8,11 +8,51 @@ import UTMage1 from "@/images/UTMage-1.png";
 import PixelPing1 from "@/images/pixelping-1.png";
 import LessonLint1 from "@/images/lessonlint-1.png";
 import CronCraft1 from "@/images/croncraft-1.png";
+import Volnyn1 from "@/images/volnyn-1.png";
+import LogoAiPro1 from "@/images/logoaipro-1.png";
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const projects = [
+    {
+      title: "Volnyn – AI-Enhanced Real Estate Platform",
+      period: "February 2026 – March 2026",
+      type: "Freelance – Laravel Project",
+      role: "Freelance Developer (US Client)",
+      tech: ["Laravel", "PHP", "MySQL", "OpenAI API", "REST APIs"],
+      description:
+        "A production real-estate platform serving the US market. Performed maintenance and integrated AI-powered features including smart property descriptions and intelligent listing recommendations.",
+      result: "Delivered AI feature upgrades that boosted platform engagement and earned repeat client collaboration.",
+      highlights: [
+        "Integrated OpenAI-powered smart property descriptions for automated listing content",
+        "Built intelligent listing recommendation engine based on user preferences",
+        "Implemented new feature modules per client requirements with seamless UX",
+        "Performed codebase maintenance, bug fixes, and performance optimizations",
+      ],
+      demoUrl: "https://volnyn.com/property/",
+      repoUrl: "",
+      images: [Volnyn1],
+    },
+    {
+      title: "LogoAiPro – AI Logo & Image Generator",
+      period: "March 2026 – April 2026",
+      type: "Freelance – Full-Stack Project",
+      role: "Freelance Developer (US Client)",
+      tech: ["Next.js", "Node.js", "OpenAI API", "Canvas API", "MongoDB"],
+      description:
+        "A full-stack AI-powered platform for generating logos and images. Features a custom interactive editor that lets users fine-tune AI-generated logos to their exact specifications.",
+      result: "Delivered a polished AI creative tool with a seamless generate → edit → download workflow.",
+      highlights: [
+        "Built AI-powered logo generation using OpenAI image generation API",
+        "Developed a custom canvas-based logo editor for colors, fonts, and layout tweaks",
+        "Created AI image generation module for brand assets and marketing visuals",
+        "Designed intuitive UI/UX for the full generation and editing pipeline",
+      ],
+      demoUrl: "",
+      repoUrl: "",
+      images: [LogoAiPro1],
+    },
     {
       title: "PixelPing – Uptime & Web Vitals Monitor",
       period: "February 2025 – March 2025",
@@ -183,24 +223,33 @@ const Projects = () => {
               {/* Buttons - Always Visible & Outside Trigger Area */}
               <div className="mt-auto p-6 pt-0 border-t border-border/50 bg-card z-10">
                 <div className="flex gap-3 pt-4">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-black text-white rounded-md text-sm font-medium hover:bg-black/90 transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="h-4 w-4" /> Live Demo
-                  </a>
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md text-sm font-medium transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    GitHub Repo
-                  </a>
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-black text-white rounded-md text-sm font-medium hover:bg-black/90 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink className="h-4 w-4" /> Live Demo
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md text-sm font-medium transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      GitHub Repo
+                    </a>
+                  )}
+                  {!project.demoUrl && !project.repoUrl && (
+                    <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-muted text-muted-foreground rounded-md text-sm font-medium cursor-default">
+                      Client Project – Private
+                    </span>
+                  )}
                 </div>
               </div>
             </Card>

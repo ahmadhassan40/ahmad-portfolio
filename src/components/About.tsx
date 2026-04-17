@@ -37,12 +37,12 @@ const About = () => {
           {/* Left Column: Bio */}
           <div className="text-lg text-foreground leading-relaxed text-justify max-w-[65ch]">
             <p className="mb-6">
-              I’m a <strong>MERN</strong> stack developer who enjoys turning ideas into fast, reliable web apps. I’ve built <strong>dashboards</strong>, <strong>Chrome extensions</strong>, and <strong>full-stack products</strong> using MongoDB, Express, React, and Node. From database design to deployment, I like owning the entire flow – shipping clean code, thoughtful UX, and performance-focused features that actually solve problems.
+              I’m a <strong>MERN</strong> stack developer who enjoys turning ideas into fast, reliable web apps. I’ve built <strong>dashboards</strong>, <strong>Chrome extensions</strong>, and <strong>full-stack products</strong> using MongoDB, Express, React, and Node. I've also worked with <strong>Laravel & PHP</strong> on freelance projects for <strong>international clients</strong>, integrating AI features into production platforms. From database design to deployment, I like owning the entire flow – shipping clean code, thoughtful UX, and performance-focused features that actually solve problems.
             </p>
             <p>
-              I specialize in building responsive web applications, integrating REST APIs, and
+              I specialize in building responsive web applications, integrating REST & AI APIs, and
               optimizing performance. I'm known for my adaptability, professionalism, and a
-              proactive, results-focused approach to <strong>end-to-end MERN apps</strong>.
+              proactive, results-focused approach to <strong>end-to-end full-stack apps</strong>.
             </p>
           </div>
 
@@ -58,6 +58,7 @@ const About = () => {
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Full-Stack Development</span>
                 <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Chrome Extensions</span>
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Freelance & AI Integration</span>
                 <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Performance</span>
               </div>
             </div>
