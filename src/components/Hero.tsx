@@ -40,25 +40,7 @@ const Hero = () => {
   const [typedCode, setTypedCode] = useState("");
   const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    // Scroll lock logic for mobile
-    const handleScrollLock = () => {
-      const isMobile = window.innerWidth < 1024; // Standard lg breakpoint
-      if (isMobile && !showContent) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "unset";
-      }
-    };
 
-    handleScrollLock();
-    window.addEventListener("resize", handleScrollLock);
-
-    return () => {
-      document.body.style.overflow = "unset";
-      window.removeEventListener("resize", handleScrollLock);
-    };
-  }, [showContent]);
 
   useEffect(() => {
     let index = 0;

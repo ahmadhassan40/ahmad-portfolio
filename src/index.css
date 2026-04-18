@@ -71,10 +71,12 @@ All colors MUST be HSL.
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   h1,
@@ -1178,10 +1180,17 @@ textarea:focus {
   /* Black text */
   white-space: pre-wrap;
   flex: 1;
-  overflow: hidden;
-  /* No scrollbars */
+  overflow-x: auto;
+  /* Allow horizontal scrolling */
   display: flex;
   gap: 1rem;
+  min-width: 0;
+}
+
+.hero-code-block pre {
+  margin: 0;
+  min-width: 0;
+  flex: 1;
 }
 
 .hero-code-lines {
